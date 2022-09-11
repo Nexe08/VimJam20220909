@@ -12,12 +12,22 @@ var cell_walls = {
 }
 
 var tile_size = 64
-var width = 25
+var width = 15
 var height = 15
+
+onready var ss = get_viewport().get_visible_rect().size # screen size
+onready var fule_source = $FuleSourcePosition
+onready var fire_place = $FirePlacePosition
+
 
 func _ready() -> void:
 	randomize()
+	global_position = Vector2(
+		ss.x / 2 - ((width * tile_size) / 2),
+		ss.y / 2 - ((height * tile_size) / 2)
+	)
 	tile_size = cell_size
+	
 	make_maze()
 
 

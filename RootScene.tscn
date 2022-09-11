@@ -1,12 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://road_tiles.tres" type="TileSet" id=1]
+[ext_resource path="res://map_container.gd" type="Script" id=2]
 [ext_resource path="res://tile_map.gd" type="Script" id=3]
 
 [node name="RootScene" type="Node2D"]
 position = Vector2( 8, 0 )
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="MapContainer" type="Node2D" parent="."]
+position = Vector2( 960, 540 )
+rotation = 1.57079
+script = ExtResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="MapContainer"]
+position = Vector2( -540.002, 959.999 )
+rotation = -1.57079
 tile_set = ExtResource( 1 )
 format = 1
 script = ExtResource( 3 )
+
+[node name="FuleSourcePosition" type="Position2D" parent="MapContainer/TileMap"]
+
+[node name="FirePlacePosition" type="Position2D" parent="MapContainer/TileMap"]
