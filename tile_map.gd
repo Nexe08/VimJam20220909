@@ -22,11 +22,12 @@ onready var fire_place = $FirePlacePosition
 
 func _ready() -> void:
 	randomize()
-	global_position = Vector2(
-		ss.x / 2 - ((width * tile_size) / 2),
-		ss.y / 2 - ((height * tile_size) / 2)
-	)
 	tile_size = cell_size
+	
+	global_position = Vector2(
+		ss.x / 2 - ((width * tile_size.x) / 2),
+		ss.y / 2 - ((height * tile_size.y) / 2)
+	)
 	
 	make_maze()
 
@@ -50,7 +51,12 @@ func make_maze():
 		for y in range(height):
 			unvisited.append(Vector2(x, y))
 			set_cellv(Vector2(x, y), N|E|S|W)
-	var current = Vector2(0, 0)
+#	var current = Vector2(0, 0) # starting point / cell of maze
+	
+	var current = world_to_map(Vector2(
+		global_position.x + ((width * tile_size.x) - (width * tile_size.x)),
+		global_position.y + ((height * tile_size.y) / 2)
+	))
 	unvisited.erase(current)
 	
 	# execute recursive backtracker algorithm
