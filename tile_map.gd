@@ -77,3 +77,6 @@ func make_maze():
 		elif stack:
 			current = stack.pop_back()
 		yield(get_tree(), "idle_frame")
+	
+	fire_place.global_position = map_to_world(current) # centergl
+	fule_source.global_position = map_to_world(Vector2.ZERO) # top left

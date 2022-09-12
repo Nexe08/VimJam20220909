@@ -14,6 +14,10 @@ config/name="VimJam3"
 run/main_scene="res://RootScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://global.gd"
+
 [display]
 
 window/size/width=1920
