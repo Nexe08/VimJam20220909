@@ -10,3 +10,6 @@ extends RigidBody2D
 #	sprite_scale_varient.shuffle()
 #	$Sprite.scale.x = sprite_scale_varient[0]
 #	$Sprite.scale.y = $Sprite.scale.x
+
+func _ready() -> void:
+	global_position = Global.fule_place_position

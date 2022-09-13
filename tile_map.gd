@@ -32,12 +32,13 @@ func _ready() -> void:
 	)
 	
 	make_maze()
+	
 
 
 func _process(delta: float) -> void:
 	if not running_map_generation:
 		Global.set_fire_place_position(fire_place.global_position)
-
+		Global.set_fule_place_position(fule_source.global_position)
 
 func check_neighbors(cell, unvisited):
 	# returns an array of unvisited neighboring cell
@@ -91,4 +92,11 @@ func make_maze():
 	var last_pos_of_maze_in_local = map_to_world(current)
 	fire_place.global_position = to_global(start_pos_of_maze_in_local) + Vector2(32, 32) # center
 	fule_source.global_position = to_global(last_pos_of_maze_in_local) + Vector2(32, 32) # last
+	
+	Global.set_fire_place_position(fire_place.global_position)
+	Global.set_fule_place_position(fule_source.global_position)
+	
+	for i in range(40):
+		Global.spawn_fule(get_parent())
+	
 	running_map_generation = false
