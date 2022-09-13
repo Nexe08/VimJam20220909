@@ -15,6 +15,8 @@ var tile_size = 64
 var width = 15
 var height = 15
 
+onready var running_map_generation: bool = true
+
 onready var ss = get_viewport().get_visible_rect().size # screen size
 onready var fule_source = $FuleSourcePosition
 onready var fire_place = $FirePlacePosition
@@ -30,6 +32,11 @@ func _ready() -> void:
 	)
 	
 	make_maze()
+
+
+func _process(delta: float) -> void:
+	if not running_map_generation:
+		Global.set_fire_place_position(fire_place.global_position)
 
 
 func check_neighbors(cell, unvisited):
@@ -59,8 +66,11 @@ func make_maze():
 	))
 	unvisited.erase(current)
 	
+	var start_pos_of_maze_in_local = map_to_world(current)
+	
 	# execute recursive backtracker algorithm
 	while unvisited: # loop untile every cell is not visited
+		running_map_generation = true
 		var neighbors = check_neighbors(current, unvisited)
 		if neighbors.size() > 0: # if there is neighbore
 			# choos any neighbore to next cell that will be current cell
@@ -78,5 +88,7 @@ func make_maze():
 			current = stack.pop_back()
 		yield(get_tree(), "idle_frame")
 	
-	fire_place.global_position = map_to_world(current) # centergl
-	fule_source.global_position = map_to_world(Vector2.ZERO) # top left
+	var last_pos_of_maze_in_local = map_to_world(current)
+	fire_place.global_position = to_global(start_pos_of_maze_in_local) + Vector2(32, 32) # center
+	fule_source.global_position = to_global(last_pos_of_maze_in_local) + Vector2(32, 32) # last
+	running_map_generation = false
