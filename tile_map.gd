@@ -15,6 +15,8 @@ var tile_size = 64
 var width = 15
 var height = 15
 
+var water_partical_amount: int = 700
+
 onready var running_map_generation: bool = true
 
 onready var ss = get_viewport().get_visible_rect().size # screen size
@@ -96,7 +98,7 @@ func make_maze():
 	Global.set_fire_place_position(fire_place.global_position)
 	Global.set_fule_place_position(fule_source.global_position)
 	
-	for i in range(40):
+	for i in range(water_partical_amount):
 		Global.spawn_fule(get_parent())
 	
 	running_map_generation = false
