@@ -1,42 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://road_tiles.tres" type="TileSet" id=1]
-[ext_resource path="res://map_container.gd" type="Script" id=2]
-[ext_resource path="res://tile_map.gd" type="Script" id=3]
-[ext_resource path="res://FirePlace.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game.tscn" type="PackedScene" id=1]
 [ext_resource path="res://root_scene.gd" type="Script" id=5]
 
 [node name="RootScene" type="Node2D"]
 position = Vector2( 8, 0 )
 script = ExtResource( 5 )
 
-[node name="MapContainer" type="Node2D" parent="."]
-position = Vector2( 960, 540 )
-rotation = 1.57079
-script = ExtResource( 2 )
-
-[node name="TileMap" type="TileMap" parent="MapContainer"]
-position = Vector2( -540.002, 959.999 )
-rotation = -1.57079
-tile_set = ExtResource( 1 )
-format = 1
-script = ExtResource( 3 )
-
-[node name="FuleSourcePosition" type="Position2D" parent="MapContainer/TileMap"]
-
-[node name="FirePlacePosition" type="Position2D" parent="MapContainer/TileMap"]
-
-[node name="FirePlace" parent="." instance=ExtResource( 4 )]
-
-[node name="MainCamera" type="Camera2D" parent="."]
-position = Vector2( 960, 540 )
-rotating = true
-current = true
-
-[node name="Label" type="Label" parent="."]
-margin_left = 943.0
-margin_top = 521.0
-margin_right = 983.0
-margin_bottom = 535.0
-rect_scale = Vector2( 3, 3 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
+[node name="Game" parent="." instance=ExtResource( 1 )]
