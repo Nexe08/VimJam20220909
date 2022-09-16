@@ -34,7 +34,6 @@ func _ready() -> void:
 	)
 	
 	make_maze()
-	
 
 
 func _process(delta: float) -> void:
