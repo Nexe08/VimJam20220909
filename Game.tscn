@@ -10,6 +10,15 @@
 [node name="Game" type="Node2D"]
 script = ExtResource( 6 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
+margin_right = 1921.0
+margin_bottom = 1076.0
+rect_pivot_offset = Vector2( 961, 540 )
+color = Color( 0.545098, 0.709804, 0.290196, 1 )
+
 [node name="MapContainer" type="Node2D" parent="."]
 position = Vector2( 960, 540 )
 rotation = 1.57079
@@ -32,14 +41,6 @@ script = ExtResource( 2 )
 position = Vector2( 960, 540 )
 rotating = true
 current = true
-
-[node name="Label" type="Label" parent="."]
-margin_left = 943.0
-margin_top = 521.0
-margin_right = 983.0
-margin_bottom = 535.0
-rect_scale = Vector2( 3, 3 )
-custom_colors/font_color = Color( 1, 0, 0, 1 )
 
 [node name="MovingMazeSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 4 )
