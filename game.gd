@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var camera = $MainCamera
+onready var moving_maze_sfx = $MovingMazeSFX
 onready var maz_is_rotation:= false
 
 func _process(delta: float) -> void:
@@ -13,13 +14,22 @@ func _process(delta: float) -> void:
 	)
 	
 	if Input.is_action_pressed("left"):
+		if not moving_maze_sfx.playing:
+			moving_maze_sfx.play()
 		camera.rotation_degrees = lerp(camera.rotation_degrees, camera.rotation_degrees + 10, 5 * delta)
 	elif Input.is_action_pressed("right"):
+		if not moving_maze_sfx.playing:
+			moving_maze_sfx.play()
 		camera.rotation_degrees = lerp(camera.rotation_degrees, camera.rotation_degrees - 10, 5 * delta)
 	elif Input.is_action_just_pressed("Up"):
 		camera.rotation_degrees = camera.rotation_degrees - 90
 	elif Input.is_action_just_pressed("Down"):
 		camera.rotation_degrees = camera.rotation_degrees + 90
+	
+	if Input.is_action_just_released("left"):
+		moving_maze_sfx.stop()
+	elif Input.is_action_just_released("right"):
+		moving_maze_sfx.stop()
 	
 #	if maz_is_rotation == false:
 #		if Input.is_action_just_pressed("left"):
