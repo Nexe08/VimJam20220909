@@ -12,8 +12,8 @@ var cell_walls = {
 }
 
 var tile_size = 64
-var width = 15
-var height = 15
+var width = 12
+var height = 12
 
 var water_partical_amount: int = 700
 
@@ -63,7 +63,7 @@ func make_maze():
 #	var current = Vector2(0, 0) # starting point / cell of maze
 	
 	var current = world_to_map(Vector2(
-		global_position.x + ((width * tile_size.x) - (width * tile_size.x)),
+		global_position.x, # + ((width * tile_size.x) - (width * tile_size.x)),
 		global_position.y + ((height * tile_size.y) / 2)
 	))
 	unvisited.erase(current)
@@ -88,7 +88,7 @@ func make_maze():
 			unvisited.erase(current)
 		elif stack:
 			current = stack.pop_back()
-		yield(get_tree(), "idle_frame")
+#		yield(get_tree(), "idle_frame")
 	
 	var last_pos_of_maze_in_local = map_to_world(current)
 	fire_place.global_position = to_global(start_pos_of_maze_in_local) + Vector2(32, 32) # center

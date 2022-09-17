@@ -13,9 +13,9 @@ func _process(delta: float) -> void:
 	)
 	
 	if Input.is_action_pressed("left"):
-		camera.rotation_degrees = lerp(camera.rotation_degrees, camera.rotation_degrees - 10, 5 * delta)
-	elif Input.is_action_pressed("right"):
 		camera.rotation_degrees = lerp(camera.rotation_degrees, camera.rotation_degrees + 10, 5 * delta)
+	elif Input.is_action_pressed("right"):
+		camera.rotation_degrees = lerp(camera.rotation_degrees, camera.rotation_degrees - 10, 5 * delta)
 	elif Input.is_action_just_pressed("Up"):
 		camera.rotation_degrees = camera.rotation_degrees - 90
 	elif Input.is_action_just_pressed("Down"):
