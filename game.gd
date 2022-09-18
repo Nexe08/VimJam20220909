@@ -36,3 +36,8 @@ func _process(delta: float) -> void:
 	Physics2DServer.area_set_param(\
 		get_viewport().find_world_2d().get_space(), \
 		Physics2DServer.AREA_PARAM_GRAVITY_VECTOR, Vector2(cos(dir), sin(dir)))
+
+
+func _on_ResetButton_pressed() -> void:
+	Global.emit_signal("reset_game")
+	queue_free()
