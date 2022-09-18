@@ -1,4 +1,5 @@
 extends TileMap
+
 var N = 1
 var E = 2
 var S = 4
