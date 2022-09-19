@@ -2,6 +2,7 @@ extends Node
 # global
 
 signal reset_game
+signal finish_game
 
 var fire_place_position: Vector2 setget set_fire_place_position
 var fule_place_position: Vector2 setget set_fule_place_position

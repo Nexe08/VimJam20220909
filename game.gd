@@ -13,6 +13,10 @@ func _process(delta: float) -> void:
 	fule_progress_bar.max_value = maze.water_partical_amount * .3
 	fule_progress_bar.value = fire_place.gained_fule_partical
 	
+	if fire_place.gained_fule_partical >= maze.water_partical_amount * .3:
+		Global.emit_signal("finish_game")
+		queue_free()
+	
 	if Input.is_action_pressed("left"):
 		if not moving_maze_sfx.playing:
 			moving_maze_sfx.play()
