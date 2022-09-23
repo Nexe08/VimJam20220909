@@ -1,0 +1,9 @@
+C:\Users\rohit\OneDrive\Documents\VimJam3\.mono\temp\bin\Debug\VimJam3.dll
+C:\Users\rohit\OneDrive\Documents\VimJam3\.mono\temp\bin\Debug\VimJam3.pdb
+C:\Users\rohit\OneDrive\Documents\VimJam3\.mono\temp\obj\Debug\VimJam3.csproj.AssemblyReference.cache
+C:\Users\rohit\OneDrive\Documents\VimJam3\.mono\temp\obj\Debug\VimJam3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rohit\OneDrive\Documents\VimJam3\.mono\temp\obj\Debug\VimJam3.AssemblyInfoInputs.cache
+C:\Users\rohit\OneDrive\Documents\VimJam3\.mono\temp\obj\Debug\VimJam3.AssemblyInfo.cs
+C:\Users\rohit\OneDrive\Documents\VimJam3\.mono\temp\obj\Debug\VimJam3.csproj.CoreCompileInputs.cache
+C:\Users\rohit\OneDrive\Documents\VimJam3\.mono\temp\obj\Debug\VimJam3.dll
+C:\Users\rohit\OneDrive\Documents\VimJam3\.mono\temp\obj\Debug\VimJam3.pdb

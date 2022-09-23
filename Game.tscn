@@ -5,7 +5,7 @@
 [ext_resource path="res://map_container.gd" type="Script" id=3]
 [ext_resource path="res://assets/moving maze.ogg" type="AudioStream" id=4]
 [ext_resource path="res://road_tiles.tres" type="TileSet" id=5]
-[ext_resource path="res://game.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Game.cs" type="Script" id=6]
 [ext_resource path="res://assets/Kenney Future Narrow.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="DynamicFont" id=3]
@@ -401,4 +401,4 @@ size_flags_vertical = 3
 text = "            "
 
 [connection signal="body_entered" from="FirePlace" to="FirePlace" method="_on_FirePlace_body_entered"]
-[connection signal="pressed" from="CanvasLayer2/Control/HBoxContainer/ResetButton" to="." method="_on_ResetButton_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Control/HBoxContainer/ResetButton" to="." method="On_ResetButton_pressed"]

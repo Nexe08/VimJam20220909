@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "+u1fGt0wgSlm8iHt0CjTuz0drAQfPSVjgrzbQcg4yINlSmI+7HZUQ69e401AhEZSTfs/FHtdBjWOxjSbmhzZrA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rohit\\OneDrive\\Documents\\VimJam3\\VimJam3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rohit\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.2\\microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "C:\\Users\\rohit\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net472\\1.0.2\\microsoft.netframework.referenceassemblies.net472.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
