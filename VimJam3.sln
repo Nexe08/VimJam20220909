@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VimJam3", "VimJam3.csproj", "{EABC1F71-4DCC-4494-9B6E-17BC1582ED5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EABC1F71-4DCC-4494-9B6E-17BC1582ED5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EABC1F71-4DCC-4494-9B6E-17BC1582ED5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EABC1F71-4DCC-4494-9B6E-17BC1582ED5C}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{EABC1F71-4DCC-4494-9B6E-17BC1582ED5C}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{EABC1F71-4DCC-4494-9B6E-17BC1582ED5C}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{EABC1F71-4DCC-4494-9B6E-17BC1582ED5C}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
