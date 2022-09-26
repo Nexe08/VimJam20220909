@@ -1,16 +1,20 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Maze.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/MainCamera.cs" type="Script" id=2]
 [ext_resource path="res://road_tiles.tres" type="TileSet" id=5]
 
 [node name="Game" type="Node2D"]
 
+[node name="MainCamera" type="Camera2D" parent="."]
+script = ExtResource( 2 )
+
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( -540.002, 959.999 )
-rotation = -1.57079
 tile_set = ExtResource( 5 )
 format = 1
 script = ExtResource( 1 )
+width = 15
+height = 15
 
 [node name="FuleSourcePosition" type="Position2D" parent="TileMap"]
 
