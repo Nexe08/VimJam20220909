@@ -15,9 +15,11 @@ public class Maze : TileMap
     const int S = 4;
     const int W = 8;
 
+    private Vector2 ScreenSize; // Stores size vector of screen size
 
     public override void _Ready()
     {
+        ScreenSize = GetViewport().GetVisibleRect().Size;
         GD.Randomize();
         tileSize = CellSize;
 
@@ -25,6 +27,13 @@ public class Maze : TileMap
         cellWalls.Add(Vector2.Left, W);
         cellWalls.Add(Vector2.Down, S);
         cellWalls.Add(Vector2.Up, N);
+
+        // Place it in the center of screen based on its size and screen size
+        GlobalPosition = new Vector2(
+            ScreenSize.x / 2 - ((width * tileSize.x) / 2),
+            ScreenSize.y / 2 - ((height * tileSize.y) / 2)
+        );
+        
         MakeMaze();
     }
 
