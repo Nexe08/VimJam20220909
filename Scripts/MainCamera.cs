@@ -25,5 +25,12 @@ public class MainCamera : Camera2D
         {
             RotationDegrees = Mathf.Lerp(RotationDegrees, RotationDegrees - 10, rotationSpeed * delta);
         }
+
+        float gravityDirection = Mathf.Deg2Rad(RotationDegrees + 90);
+        Physics2DServer.AreaSetParam(
+            GetViewport().FindWorld2d().Space, 
+            Physics2DServer.AreaParameter.GravityVector, 
+            new Vector2(Mathf.Cos(gravityDirection), Mathf.Sin(gravityDirection))
+        );
     }
 }

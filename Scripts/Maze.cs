@@ -62,7 +62,7 @@ public class Maze : TileMap
     - Calling "SpawnPacManInstance" Function
     */
 
-    async void MakeMaze()
+    void MakeMaze()
     {
         Godot.Collections.Array unvisited = new Godot.Collections.Array();
         Godot.Collections.Array stack = new Godot.Collections.Array();
