@@ -4,18 +4,35 @@ using System;
 
 public class Maze : TileMap
 {
+    // Export var
+
     [Export] int width = 25; // width of the map (in tiles)
     [Export] int height = 25; // height of the map (in tiles)
 
-    Vector2 tileSize;
+
+    // Defined Private var
+
     Godot.Collections.Dictionary<Vector2, int> cellWalls = new Godot.Collections.Dictionary<Vector2, int>();
+
+    // Undefined private var
+
+    Vector2 tileSize;
+    Vector2 ScreenSize; // Stores size vector of screen size
+
+
+    // Constants
 
     const int N = 1;
     const int E = 2;
     const int S = 4;
     const int W = 8;
 
-    private Vector2 ScreenSize; // Stores size vector of screen size
+
+    // Packed Scene Paths
+
+    PackedScene pacManResPath = ResourceLoader.Load("res://Prefabes/PacMan.tscn") as PackedScene;
+
+
 
     public override void _Ready()
     {
@@ -33,9 +50,17 @@ public class Maze : TileMap
             ScreenSize.x / 2 - ((width * tileSize.x) / 2),
             ScreenSize.y / 2 - ((height * tileSize.y) / 2)
         );
-        
+
         MakeMaze();
     }
+
+    /*
+    This uses BackTracking Methode to generate maze.
+    This function include:
+    - Maze generation Methode
+    - Calling "CheckNeighbore" Function
+    - Calling "SpawnPacManInstance" Function
+    */
 
     async void MakeMaze()
     {
@@ -52,7 +77,8 @@ public class Maze : TileMap
                 SetCellv(new Vector2(x, y), N | E | S | W);
             }
         }
-        Vector2 current = new Vector2(0, 0);
+        Vector2 current = new Vector2(0, 0); // Vector2(GlobalPosition.x, GlobalPosition.y + (height * tileSize.y) / 2);
+        Vector2 startPosition = MapToWorld(current);
         unvisited.Remove(current);
 
         // implimantation of algorithme
@@ -62,7 +88,7 @@ public class Maze : TileMap
             if (neighbors.Count > 0)
             {
                 neighbors.Shuffle();
-                Vector2 next = (Vector2) neighbors[0]; //(Vector2)neighbors[(int)GD.Randi() % (int)neighbors.Count];
+                Vector2 next = (Vector2)neighbors[0]; //(Vector2)neighbors[(int)GD.Randi() % (int)neighbors.Count];
                 stack.Add(current);
                 //remove walls from both cells
                 Vector2 dir = next - current;
@@ -75,12 +101,18 @@ public class Maze : TileMap
             }
             else if (stack.Count > 0)
             {
-                current = (Vector2) stack[stack.Count - 1];
+                current = (Vector2)stack[stack.Count - 1];
                 stack.RemoveAt(stack.Count - 1);
             }
-                await ToSignal(GetTree(), "idle_frame");
+            // await ToSignal(GetTree(), "idle_frame");
         }
+
+        SpawnPacManInstance(startPosition);
     }
+
+    /*
+    Return's the list of neighbors which are not visited yet.
+    */
 
     Godot.Collections.Array CheckNeighbors(Vector2 _cell, Godot.Collections.Array _unvisited)
     {
@@ -93,5 +125,21 @@ public class Maze : TileMap
             }
         }
         return list;
+    }
+
+    /*
+    Spawn Packman after maze generation is finished
+    This function is called in MakeMaze() function
+    [param]: _spawn_positon "Position where Pac Man instance is going to spawn"
+    */
+
+    void SpawnPacManInstance(Vector2 _spawn_position)
+    {
+        var instance = pacManResPath.Instance() as RigidBody2D;
+
+        instance.GlobalPosition = ToGlobal(_spawn_position) + (tileSize / 2);
+        // instance.GlobalPosition = WorldToMap(_spawn_position);
+        // GetParent().AddChild(instance);
+        GetParent().CallDeferred("add_child", instance);
     }
 }
